@@ -43,7 +43,7 @@ class MainSiteModel extends Model
     }
 
     private function err_count($q){
-        $db = db_connect("tests");
+        $db = db_connect();
         $sql  = "SELECT Machine ";
         $sql .= "FROM asrs_error_trans ";
         $sql .= "WHERE wh = '".static::$wh."' ";
