@@ -1,6 +1,6 @@
 <div class="col-sm-12 col-md-5 mb-1" id="dashboard-content">
-        <div class="row pt-1 pb-1">
-       
+        <div class="row pt-1 pb-1 col-sm-12">
+            <h3><strong>Error AS/RS <?= $title." ".$count['date'] ?></strong></h3>
         </div>
         <div class="row pt-1 pb-1">
             <div class="col-sm-12 col-md-12">
@@ -15,7 +15,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-12 col-md-4">
+            <div class="col-sm-12 col-md-6">
                 <div class="small-box bg-primary">
                     <div class="inner">
                         <h3 id="err_crane"><?= $count['crane'] ?></h3>
@@ -27,7 +27,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-12 col-md-4">
+            <div class="col-sm-12 col-md-6">
                 <div class="small-box bg-danger">
                     <div class="inner">
                         <h3 id="err_conveyor"><?= $count['conveyor'] ?></h3>
@@ -36,18 +36,6 @@
                     </div>
                     <div class="icon">
                         <i class="fas fa-sliders-h"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-4">
-                <div class="small-box bg-warning">
-                    <div class="inner">
-                        <h3 id="err_stv"><?= $count['stv'] ?></h3>
-
-                        <p>STV Error Log</p>
-                    </div>
-                    <div class="icon">
-                        <i class="fas fa-pallet"></i> 
                     </div>
                 </div>
             </div>
