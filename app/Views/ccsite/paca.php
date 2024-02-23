@@ -1,4 +1,4 @@
-<div class="col-sm-12 col-md-5 mb-1" id="dashboard-content">
+<div class="col-sm-12 col-md-12 mb-1" id="dashboard-content">
         <div class="row pt-1 pb-1 col-sm-12">
             <h3><strong>Error AS/RS <?= $title." ".$count['date'] ?></strong></h3>
         </div>

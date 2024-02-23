@@ -23,7 +23,7 @@ include('Frame/script.php');
         <!-- Preloader -->
      
          <!-- Content Wrapper. Contains page content -->
-         <div class="content-wrapper" style="width: 200; height: 721;"> <!-- style="width: 1980px; height: 1080;"
+         <div class="content-wrapper" style="width: 840; height: 721;"> <!-- style="width: 1980px; height: 1080;"
             <!-- Content Header (Page header) -->
             <div class="content-header">
 
