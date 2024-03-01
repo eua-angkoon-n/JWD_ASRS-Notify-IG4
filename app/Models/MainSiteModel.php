@@ -31,6 +31,11 @@ class MainSiteModel extends Model
                 $conveyor = Setting::$PACSMachine['conveyor'];
                 $stv      = Setting::$PACSMachine['stv'];
             break;
+            case 'pact':
+                $crane    = Setting::$PACTMachine['crane'];
+                $conveyor = Setting::$PACTMachine['conveyor'];
+                $stv      = Setting::$PACTMachine['stv'];
+            break;
         }
 
         return array(
@@ -48,8 +53,18 @@ class MainSiteModel extends Model
         $sql .= "FROM asrs_error_trans ";
         $sql .= "WHERE wh = '".static::$wh."' ";
         $sql .= "AND DATE(tran_date_time) = DATE_SUB(CURDATE(), INTERVAL 2 DAY)";
-        if($q)
-            $sql .= "AND Machine LIKE '$q%'";
+        if($q){
+            if(is_array($q)){
+                $conditions = [];
+                foreach ($q as $value) {
+                    $conditions[] = "Machine LIKE '{$value}%'";
+                }
+                $m = implode(' OR ', $conditions);
+                $sql .= "AND ( $m ) ";
+            } else {
+                $sql .= "AND Machine LIKE '$q%'";
+            }
+        }
 
         try{
 

@@ -69,4 +69,13 @@ class ColdChainSite extends BaseController
         $data['content'] = view('ccsite/main', $data);
         return view('index', $data);
     }
+
+    public function pact(){
+        $model = new MainSiteModel();
+        $data['count'] = $model->getData('pact');
+        $data['title'] = "PACT";
+
+        $data['content'] = view('ccsite/main', $data);
+        return view('index', $data);
+    }
 }

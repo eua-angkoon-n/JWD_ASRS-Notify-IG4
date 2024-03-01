@@ -29,4 +29,10 @@ class Setting extends Model
         'conveyor' => '1',
         'stv' => 'SS'
     );
+
+    public static $PACTMachine = array(
+        'crane' => 'RMA',
+        'conveyor' => array('1','D-'),
+        'stv' => 'SS'
+    );
 }

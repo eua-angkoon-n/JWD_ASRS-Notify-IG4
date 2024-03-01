@@ -14,3 +14,4 @@ $routes->get('/pacatemp', 'ColdChainSite::pacatemp');
 
 $routes->get('/pacm', 'ColdChainSite::pacm');
 $routes->get('/pacs', 'ColdChainSite::pacs');
+$routes->get('/pact', 'ColdChainSite::pact');
