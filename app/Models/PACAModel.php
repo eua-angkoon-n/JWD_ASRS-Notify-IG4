@@ -83,8 +83,22 @@ class PACAModel extends Model
 
             $row = $query->getRow(); // ดึงข้อมูล row จาก query
 
+            $queryLog = $db->table('asrs_error_trans')
+            ->select('tran_date_time')
+            ->where('wh','paca')
+            ->whereIn('Transfer_Equipment', static::$machine)
+            ->orderBy('tran_date_time', 'desc')
+            ->limit(1)
+            ->get();
+
+            $lastDate = $queryLog->getLastRow();
+            if (!empty($lastDate->tran_date_time)){
+                $date = date("d.M.Y H:i:s", strtotime($lastDate->tran_date_time));
+            } else {
+                $date = "-";
+            }
             if ($row) {
-                return "Last Data Update: ".$row->date;
+                return "Last Data Error: ".$date."<br><h5>Update At: $row->date </h5>";
             } else {
                 return "-"; // หรือค่าที่เหมาะสมเมื่อไม่พบข้อมูล
             }
