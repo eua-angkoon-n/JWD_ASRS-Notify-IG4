@@ -7,12 +7,29 @@ use CodeIgniter\HTTP\ResponseInterface;
 
 use App\Models\MainSiteModel;
 use App\Models\PACAModel;
+use App\Models\PCSModel;
 
 class ColdChainSite extends BaseController
 {
     public function index()
     {
         //
+    }
+
+    public function pcs(){
+        $model = new PCSModel();
+        $data['data'] = $model->getData();
+
+        $data['content'] = view('ccsite/pcs', $data);
+        return view('index', $data);
+    }
+
+    public function paca(){
+        $model = new PACAModel();
+        $data['data'] = $model->getData();
+
+        $data['content'] = view('ccsite/paca', $data);
+        return view('index', $data);
     }
 
     public function pcsb8(){

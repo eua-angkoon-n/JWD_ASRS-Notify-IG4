@@ -9,24 +9,13 @@ class PACAModel extends Model
 
     protected static $machine;
 
-    public function getData(){
+    public function getData($wh){
  
-        $r = array (
-            'frozen' => $this->getError('frozen'),
-            'temp'   => $this->getError('temp'),
-            'date'=>date('d/m/Y', strtotime('-2 days'))
-        );
-        return $r;
-    }
-
-    protected function getError($wh){
         switch($wh){
             case 'frozen':
-                $title           = "Frozen Room";
                 static::$machine = Setting::$PACARoom['Frozen'];
             break;
             case 'temp':
-                $title           = "Temp Control Room";
                 static::$machine = Setting::$PACARoom['Temp'];
             break;
         }
@@ -34,19 +23,20 @@ class PACAModel extends Model
         $total = $this->err_count(false);
         if($total == 'nodata'){
             return array(
-                'title' => $title,
                 'total' => $this->getLastUpdate($wh),
                 'crane' => "No Data",
                 'conveyor' => "No Data",
+                'date'=>date('d/m/Y', strtotime('-2 days'))
             );
         } else {
             return array(
-                'title' => $title,
                 'total' => $total,
                 'crane' => $this->err_count('01:Crane'),
                 'conveyor' => $this->err_count('02:Conveyor'),
+                'date'=>date('d/m/Y', strtotime('-2 days'))
             );
         }
+
     }
 
     private function err_count($q){
