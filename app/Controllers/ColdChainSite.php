@@ -19,7 +19,7 @@ class ColdChainSite extends BaseController
     public function pcs(){
         $model = new PCSModel();
         $data['data'] = $model->getData();
-
+        $data['title'] = 'PCS';
         $data['content'] = view('ccsite/pcs', $data);
         return view('index', $data);
     }
@@ -27,7 +27,7 @@ class ColdChainSite extends BaseController
     public function paca(){
         $model = new PACAModel();
         $data['data'] = $model->getData();
-
+        $data['title'] = 'PACA';
         $data['content'] = view('ccsite/paca', $data);
         return view('index', $data);
     }
